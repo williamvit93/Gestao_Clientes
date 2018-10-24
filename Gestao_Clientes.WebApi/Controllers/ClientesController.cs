@@ -45,9 +45,9 @@ namespace Gestao_Clientes.WebApi.Controllers
         }
 
         [HttpDelete]
-        public void ConfirmarRemocao(string cpf)
+        public ClienteViewModel ConfirmarRemocao(string cpf)
         {
-            _clienteNegocios.Remover(cpf);
+            return _clienteNegocios.Remover(cpf);
         }
     }
 }

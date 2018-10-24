@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Gestao_Clientes.Dados.Interfaces;
 using Gestao_Clientes.Dominio.Clientes;
@@ -22,8 +23,14 @@ namespace Gestao_Clientes.Negocios
             var cliente = Mapper.Map<Cliente>(clienteViewModel);
             _clienteRepositorio.Adicionar(cliente);
 
-            if (!Notifications.HasNotifications()) Commit();
-            
+            if (!Notifications.HasNotifications())
+            {
+                Commit();
+            }
+            else
+            {
+                clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
+            }
             return clienteViewModel;
         }
 
@@ -32,8 +39,15 @@ namespace Gestao_Clientes.Negocios
             var cliente = Mapper.Map<Cliente>(clienteViewModel);
             _clienteRepositorio.Atualizar(cliente);
 
-            if (!Notifications.HasNotifications()) Commit();
-            
+            if (!Notifications.HasNotifications())
+            {
+                Commit();
+            }
+            else
+            {
+                clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
+            }
+
             return clienteViewModel;
         }
 
@@ -47,10 +61,23 @@ namespace Gestao_Clientes.Negocios
             return Mapper.Map<IEnumerable<ClienteViewModel>>(_clienteRepositorio.Listar());
         }
 
-        public void Remover(string cpf)
+        public ClienteViewModel Remover(string cpf)
         {
-            _clienteRepositorio.Remover(_clienteRepositorio.BuscaPorCpf(cpf));
-            if (!Notifications.HasNotifications()) Commit();
+            var cliente = _clienteRepositorio.BuscaPorCpf(cpf);
+            var clienteViewModel = Mapper.Map<ClienteViewModel>(cliente);
+
+            _clienteRepositorio.Remover(cliente);
+
+            if (!Notifications.HasNotifications())
+            {
+                Commit();
+            }
+            else
+            {
+                clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
+            }
+
+            return clienteViewModel;
         }
     }
 }
