@@ -9,6 +9,8 @@ namespace Gestao_Clientes.Negocios.AutoMapper
         protected override void Configure()
         {
             CreateMap<ClienteViewModel, Cliente>().ReverseMap();
+            CreateMap<SituacaoClienteViewModel, SituacaoCliente>().ReverseMap();
+            CreateMap<TipoClienteViewModel, TipoCliente>().ReverseMap();
         }
     }
 }

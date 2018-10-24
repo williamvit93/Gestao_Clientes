@@ -1,4 +1,5 @@
-﻿using Gestao_Clientes.Dominio.Clientes.Scopes;
+﻿using System;
+using Gestao_Clientes.Dominio.Clientes.Scopes;
 using Gestao_Clientes.Dominio.ValueObjects;
 
 namespace Gestao_Clientes.Dominio.Clientes
@@ -11,6 +12,8 @@ namespace Gestao_Clientes.Dominio.Clientes
         public int SituacaoCliente { get; private set; }
         public char Sexo { get; private set; }
         private Cpf _cpf;
+        public virtual SituacaoCliente Situacao { get; set; }
+        public virtual TipoCliente Tipo { get; set; }
 
         protected Cliente()
         {
@@ -20,11 +23,17 @@ namespace Gestao_Clientes.Dominio.Clientes
         public Cliente(string cpf, string nome, int tipoCliente, int situacaoCliente, char sexo)
         {
             DefinirCpf(cpf);
+            DefinirNome(nome);
             Cpf = cpf;
-            Nome = nome;
             TipoCliente = tipoCliente;
             SituacaoCliente = situacaoCliente;
             Sexo = sexo;
+        }
+
+        private void DefinirNome(string nome)
+        {
+            if (this.DefinirNomeClienteScopeIsValid(nome))
+                Nome = nome;
         }
 
         private void DefinirCpf(string cpf)

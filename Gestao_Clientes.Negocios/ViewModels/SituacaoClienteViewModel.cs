@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Gestao_Clientes.Negocios.ViewModels
+{
+    public class SituacaoClienteViewModel
+    {
+        public int Id { get; set; }
+        public string Descricao { get; set; }
+    }
+}

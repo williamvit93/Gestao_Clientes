@@ -3,7 +3,7 @@ using Gestao_Clientes.Negocios.ViewModels;
 
 namespace Gestao_Clientes.Negocios.Interfaces
 {
-    public interface IClienteDAO
+    public interface IClienteNegocios
     {
         IEnumerable<ClienteViewModel> Listar();
         ClienteViewModel BuscaPorCpf(string cpf);

@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{52B7B18C-50A2-4C10-AD3D-48DD1A918BB0}</ProjectGuid>
+    <ProjectGuid>{FBF88349-1AC2-46F3-8756-E0F27827964E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gestao_Clientes.Dominio</RootNamespace>
-    <AssemblyName>Gestao_Clientes.Dominio</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Gestao_Clientes.Infra</RootNamespace>
+    <AssemblyName>Gestao_Clientes.Infra</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,20 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes\Cliente.cs" />
-    <Compile Include="Clientes\Interfaces\IClientesRepositorio.cs" />
-    <Compile Include="Clientes\Scopes\ClienteScopes.cs" />
-    <Compile Include="Clientes\SituacaoCliente.cs" />
-    <Compile Include="Clientes\TipoCliente.cs" />
-    <Compile Include="Events\DomainEvent.cs" />
-    <Compile Include="Events\DomainNotification.cs" />
-    <Compile Include="Helpers\TextoHelper.cs" />
-    <Compile Include="Interfaces\IContainer.cs" />
-    <Compile Include="Interfaces\IDomainEvent.cs" />
-    <Compile Include="Interfaces\IHandler.cs" />
+    <Compile Include="BootStrapperGestaoClientes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\AssertionConcern.cs" />
-    <Compile Include="ValueObjects\Cpf.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gestao_Clientes.Dados\Gestao_Clientes.Dados.csproj">
+      <Project>{d733cf1a-bb4a-4fa4-ba0d-3c2d042d5f9c}</Project>
+      <Name>Gestao_Clientes.Dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gestao_Clientes.Dominio\Gestao_Clientes.Dominio.csproj">
+      <Project>{52b7b18c-50a2-4c10-ad3d-48dd1a918bb0}</Project>
+      <Name>Gestao_Clientes.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gestao_Clientes.Negocios\Gestao_Clientes.Negocios.csproj">
+      <Project>{479f16a6-529d-4fcd-9da3-d57f422b5600}</Project>
+      <Name>Gestao_Clientes.Negocios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

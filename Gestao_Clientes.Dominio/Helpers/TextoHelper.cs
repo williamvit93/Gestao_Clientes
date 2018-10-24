@@ -6,6 +6,14 @@ namespace Gestao_Clientes.Dominio.Helpers
 {
     public class TextoHelper
     {
+        public static bool ContemNumeros(string texto)
+        {
+            if (texto.Where(c => char.IsNumber(c)).Count() > 0)
+                return true;
+            else
+                return false;
+        }
+
         public static string RemoverAcentos(string texto)
         {
             if (texto == null) return string.Empty;

@@ -1,4 +1,6 @@
-﻿namespace Gestao_Clientes.Dominio.ValueObjects
+﻿using Gestao_Clientes.Dominio.Helpers;
+
+namespace Gestao_Clientes.Dominio.ValueObjects
 {
     public class Cpf
     {

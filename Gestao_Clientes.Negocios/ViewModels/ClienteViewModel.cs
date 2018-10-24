@@ -1,4 +1,6 @@
-﻿namespace Gestao_Clientes.Negocios.ViewModels
+﻿using System.Collections.Generic;
+
+namespace Gestao_Clientes.Negocios.ViewModels
 {
     public class ClienteViewModel
     {
@@ -7,5 +9,8 @@
         public int TipoCliente { get; set; }
         public int SituacaoCliente { get; set; }
         public char Sexo { get; set; }
+        public SituacaoClienteViewModel Situacao { get; set; }
+        public TipoClienteViewModel Tipo { get; set; }
+        public IEnumerable<string> Erros { get; set; }
     }
 }
