@@ -17,7 +17,7 @@ namespace Gestao_Clientes.Negocios
         public ApplicationService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            Notifications = DomainEvent.Container.GetInstance<IHandler<DomainNotification>>();
+            //Notifications = DomainEvent.Container.GetInstance<IHandler<DomainNotification>>();
         }
 
         public bool Commit()

@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace Gestao_Clientes.WebApi
+namespace Gestao_Clientes.API
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

@@ -48,6 +48,7 @@
     <Compile Include="Clientes\TipoCliente.cs" />
     <Compile Include="Events\DomainEvent.cs" />
     <Compile Include="Events\DomainNotification.cs" />
+    <Compile Include="Handlers\DomainNotificationHandler.cs" />
     <Compile Include="Helpers\TextoHelper.cs" />
     <Compile Include="Interfaces\IContainer.cs" />
     <Compile Include="Interfaces\IDomainEvent.cs" />
