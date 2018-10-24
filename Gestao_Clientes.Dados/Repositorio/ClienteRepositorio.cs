@@ -30,7 +30,7 @@ namespace Gestao_Clientes.Dados.Repositorio
 
         public Cliente BuscaPorCpf(string cpf)
         {
-            return _contexto.Database.SqlQuery<Cliente>($"exec BUSCA_CLIENTE_POR_CPF {cpf}").FirstOrDefault();
+            return _contexto.Database.SqlQuery<Cliente>($"exec BUSCA_CLIENTE_POR_CPF '{cpf}'").FirstOrDefault();
         }
 
         public IEnumerable<Cliente> Listar()

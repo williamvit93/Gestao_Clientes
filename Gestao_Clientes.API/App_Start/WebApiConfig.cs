@@ -16,9 +16,21 @@ namespace Gestao_Clientes.API
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "Listar",
+                routeTemplate: "api/{controller}",
+                defaults: new { action = "Listar" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "BuscaPorCpf",
+                routeTemplate: "api/{controller}/{cpf}",
+                defaults: new { action = "BuscaPorCpf", cpf = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "Remover",
+                routeTemplate: "api/{controller}/{cpf}",
+                defaults: new { action = "Remover", cpf = RouteParameter.Optional }
             );
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);
