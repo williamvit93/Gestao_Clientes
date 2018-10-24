@@ -9,6 +9,6 @@ namespace Gestao_Clientes.Negocios.Interfaces
         ClienteViewModel BuscaPorCpf(string cpf);
         ClienteViewModel Adicionar(ClienteViewModel cliente);
         ClienteViewModel Atualizar(ClienteViewModel cliente);
-        void Remover(ClienteViewModel cliente);
+        void Remover(string cpf);
     }
 }

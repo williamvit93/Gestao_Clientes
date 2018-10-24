@@ -30,7 +30,7 @@ namespace Gestao_Clientes.Negocios
             throw new NotImplementedException();
         }
 
-        public void Remover(ClienteViewModel cliente)
+        public void Remover(string cpf)
         {
             throw new NotImplementedException();
         }
