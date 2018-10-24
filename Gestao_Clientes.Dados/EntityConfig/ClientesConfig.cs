@@ -12,7 +12,7 @@ namespace Gestao_Clientes.Dados.EntityConfig
             Property(x => x.Nome).HasMaxLength(200).IsRequired().HasColumnType("VARCHAR");
             Property(x => x.SituacaoCliente).HasColumnName("SITUACAO_CLIENTE").IsRequired();
             Property(x => x.TipoCliente).HasColumnName("TIPO_CLIENTE").IsRequired();
-            Property(x => x.Sexo).IsRequired().HasColumnType("CHAR");
+            Property(x => x.Sexo).IsRequired().HasMaxLength(1);
 
             MapToStoredProcedures
                 (x=>x.Insert(sp=>sp.HasName("NOVO_CLIENTE")

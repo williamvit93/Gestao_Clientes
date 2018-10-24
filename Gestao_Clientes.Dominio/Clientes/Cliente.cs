@@ -10,7 +10,7 @@ namespace Gestao_Clientes.Dominio.Clientes
         public string Nome { get; private set; }
         public int TipoCliente { get; private set; }
         public int SituacaoCliente { get; private set; }
-        public char Sexo { get; private set; }
+        public string Sexo { get; private set; }
         private Cpf _cpf;
         public virtual SituacaoCliente Situacao { get; set; }
         public virtual TipoCliente Tipo { get; set; }
@@ -20,7 +20,7 @@ namespace Gestao_Clientes.Dominio.Clientes
 
         }
 
-        public Cliente(string cpf, string nome, int tipoCliente, int situacaoCliente, char sexo)
+        public Cliente(string cpf, string nome, int tipoCliente, int situacaoCliente, string sexo)
         {
             DefinirCpf(cpf);
             DefinirNome(nome);
