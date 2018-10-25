@@ -8,6 +8,6 @@ namespace Gestao_Clientes.Dominio.Clientes.Interfaces
         Cliente BuscaPorCpf(string cpf);
         Cliente Adicionar(Cliente cliente);
         Cliente Atualizar(Cliente cliente);
-        void Remover(Cliente cliente);
+        void Remover(string cpf);
     }
 }

@@ -21,16 +21,14 @@ namespace Gestao_Clientes.Negocios
         public ClienteViewModel Adicionar(ClienteViewModel clienteViewModel)
         {
             var cliente = Mapper.Map<Cliente>(clienteViewModel);
+
             _clienteRepositorio.Adicionar(cliente);
 
-            if (!Notifications.HasNotifications())
-            {
-                Commit();
-            }
-            else
+            if (!Commit())
             {
                 clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
             }
+
             return clienteViewModel;
         }
 
@@ -39,11 +37,7 @@ namespace Gestao_Clientes.Negocios
             var cliente = Mapper.Map<Cliente>(clienteViewModel);
             _clienteRepositorio.Atualizar(cliente);
 
-            if (!Notifications.HasNotifications())
-            {
-                Commit();
-            }
-            else
+            if (!Commit())
             {
                 clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
             }
@@ -63,16 +57,10 @@ namespace Gestao_Clientes.Negocios
 
         public ClienteViewModel Remover(string cpf)
         {
-            var cliente = _clienteRepositorio.BuscaPorCpf(cpf);
-            var clienteViewModel = Mapper.Map<ClienteViewModel>(cliente);
+            var clienteViewModel = Mapper.Map<ClienteViewModel>(_clienteRepositorio.BuscaPorCpf(cpf));
+            _clienteRepositorio.Remover(cpf);
 
-            _clienteRepositorio.Remover(cliente);
-
-            if (!Notifications.HasNotifications())
-            {
-                Commit();
-            }
-            else
+            if (!Commit())
             {
                 clienteViewModel.Erros = Notifications.GetValues().Select(x => x.Value).ToList();
             }

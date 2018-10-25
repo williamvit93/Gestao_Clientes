@@ -1,6 +1,9 @@
 ﻿using Gestao_Clientes.Negocios.Interfaces;
 using Gestao_Clientes.Negocios.ViewModels;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace Gestao_Clientes.API.Controllers
@@ -15,39 +18,63 @@ namespace Gestao_Clientes.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ClienteViewModel> Listar()
+        public IHttpActionResult Listar()
         {
-            return _clienteNegocios.Listar();
+            var listaClientes = _clienteNegocios.Listar();
+
+            var httpResult = listaClientes.Count() > 0 
+                ? ResponseMessage(Request.CreateResponse<IEnumerable<ClienteViewModel>>(HttpStatusCode.OK, listaClientes))
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Não existem clientes cadastrados"));
+
+            return httpResult;
         }
 
         [HttpGet]
-        public ClienteViewModel BuscaPorCpf(string cpf)
+        public IHttpActionResult BuscaPorCpf(string cpf)
         {
-            return _clienteNegocios.BuscaPorCpf(cpf);
+            var cliente = _clienteNegocios.BuscaPorCpf(cpf);
+
+            var httpResult = cliente != null 
+                ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, cliente))
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Cliente não Encontrado"));
+
+            return httpResult;
         }
 
         [HttpPost]
-        public ClienteViewModel Adicionar(ClienteViewModel clienteViewModel)
+        public IHttpActionResult Adicionar([FromBody]ClienteViewModel clienteViewModel)
         {
-            return _clienteNegocios.Adicionar(clienteViewModel);
+            var clienteAdicionado = _clienteNegocios.Adicionar(clienteViewModel);
+
+            var httpResult = clienteAdicionado.Erros == null 
+                ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteAdicionado))
+                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NotAcceptable, clienteAdicionado.Erros));
+
+            return httpResult;
         }
 
         [HttpPut]
-        public ClienteViewModel Atualizar(ClienteViewModel clienteViewModel)
+        public IHttpActionResult Atualizar([FromBody]ClienteViewModel clienteViewModel)
         {
-            return _clienteNegocios.Atualizar(clienteViewModel);
-        }
+            var clienteAtualizado = _clienteNegocios.Atualizar(clienteViewModel);
 
-        [HttpGet]
-        public ClienteViewModel Remover(string cpf)
-        {
-            return _clienteNegocios.BuscaPorCpf(cpf);
+            var httpResult = clienteAtualizado.Erros == null 
+                ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteAtualizado))
+                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NotAcceptable, clienteAtualizado.Erros));
+
+            return httpResult;
         }
 
         [HttpDelete]
-        public ClienteViewModel ConfirmarRemocao(string cpf)
+        public IHttpActionResult ConfirmarRemocao(string cpf)
         {
-            return _clienteNegocios.Remover(cpf);
+            var clienteRemovido = _clienteNegocios.Remover(cpf);
+
+            var httpResult = clienteRemovido != null 
+                ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteRemovido))
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Cliente não Encontrado"));
+
+            return httpResult;
         }
     }
 }

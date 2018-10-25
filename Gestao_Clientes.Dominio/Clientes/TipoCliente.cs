@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Gestao_Clientes.Dominio.Clientes
 {
@@ -10,6 +6,8 @@ namespace Gestao_Clientes.Dominio.Clientes
     {
         public int Id { get; private set; }
         public string Descricao { get; private set; }
+        public virtual ICollection<Cliente> Cliente { get; set; }
+
 
         protected TipoCliente()
         {

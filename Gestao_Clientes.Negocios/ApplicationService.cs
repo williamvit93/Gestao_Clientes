@@ -2,10 +2,6 @@
 using Gestao_Clientes.Dominio.Events;
 using Gestao_Clientes.Dominio.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gestao_Clientes.Negocios
 {
@@ -17,7 +13,7 @@ namespace Gestao_Clientes.Negocios
         public ApplicationService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            //Notifications = DomainEvent.Container.GetInstance<IHandler<DomainNotification>>();
+            Notifications = DomainEvent.Container.GetInstance<IHandler<DomainNotification>>();
         }
 
         public bool Commit()

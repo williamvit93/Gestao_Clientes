@@ -116,6 +116,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\DomainEventsContainer.cs" />
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -136,6 +137,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gestao_Clientes.Dominio\Gestao_Clientes.Dominio.csproj">
+      <Project>{52B7B18C-50A2-4C10-AD3D-48DD1A918BB0}</Project>
+      <Name>Gestao_Clientes.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gestao_Clientes.Infra\Gestao_Clientes.Infra.csproj">
       <Project>{fbf88349-1ac2-46f3-8756-e0f27827964e}</Project>
       <Name>Gestao_Clientes.Infra</Name>

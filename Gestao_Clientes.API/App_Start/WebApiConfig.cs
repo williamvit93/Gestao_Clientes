@@ -15,22 +15,40 @@ namespace Gestao_Clientes.API
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "Listar",
-                routeTemplate: "api/{controller}",
-                defaults: new { action = "Listar" }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "Listar",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Listar" }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "BuscaPorCpf",
+            //    routeTemplate: "api/{controller}/{cpf}",
+            //    defaults: new { action = "BuscaPorCpf", cpf = RouteParameter.Optional }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "Remover",
+            //    routeTemplate: "api/{controller}/{cpf}",
+            //    defaults: new { action = "Remover", cpf = RouteParameter.Optional }
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "Atualizar",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Atualizar"}
+            //);
+
+            //config.Routes.MapHttpRoute(
+            //    name: "Adicionar",
+            //    routeTemplate: "api/{controller}",
+            //    defaults: new { action = "Adicionar"}
+            //);
 
             config.Routes.MapHttpRoute(
-                name: "BuscaPorCpf",
-                routeTemplate: "api/{controller}/{cpf}",
-                defaults: new { action = "BuscaPorCpf", cpf = RouteParameter.Optional }
-            );
-
-            config.Routes.MapHttpRoute(
-                name: "Remover",
-                routeTemplate: "api/{controller}/{cpf}",
-                defaults: new { action = "Remover", cpf = RouteParameter.Optional }
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
 
             config.Formatters.Remove(config.Formatters.XmlFormatter);

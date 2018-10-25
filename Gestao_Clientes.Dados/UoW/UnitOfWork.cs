@@ -1,12 +1,8 @@
 ﻿using Gestao_Clientes.Dados.Contexto;
 using Gestao_Clientes.Dados.Interfaces;
 using Microsoft.ApplicationInsights;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Gestao_Clientes.Dados.UoW
 {

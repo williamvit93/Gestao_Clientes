@@ -38,9 +38,9 @@ namespace Gestao_Clientes.Dados.Repositorio
             return _contexto.Database.SqlQuery<Cliente>($"exec LISTAR_CLIENTES").ToList();
         }
 
-        public void Remover(Cliente cliente)
+        public void Remover(string cpf)
         {
-            _contexto.Clientes.Remove(cliente);
+            _contexto.Database.ExecuteSqlCommand($"exec REMOVE_CLIENTE '{cpf}'");
         }
     }
 }

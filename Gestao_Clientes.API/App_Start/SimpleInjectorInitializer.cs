@@ -1,14 +1,13 @@
-﻿using Gestao_Clientes.Infra;
+﻿using Gestao_Clientes.API.App_Start;
+using Gestao_Clientes.Dominio.Events;
+using Gestao_Clientes.Infra;
 using Gestao_Clientes.WebApi.App_Start;
 using Newtonsoft.Json.Serialization;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.WebApi;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
-using System.Web;
 using System.Web.Http;
 using WebActivatorEx;
 
@@ -31,8 +30,9 @@ namespace Gestao_Clientes.WebApi.App_Start
             ConfigureDependencyInjection(container);
             ConfigureWebApi(httpConfig);
 
-            container.Verify();
+            //container.Verify();
             GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
+            DomainEvent.Container = new DomainEventsContainer(GlobalConfiguration.Configuration.DependencyResolver);
 
         }
 

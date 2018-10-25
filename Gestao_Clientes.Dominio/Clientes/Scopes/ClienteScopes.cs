@@ -20,7 +20,7 @@ namespace Gestao_Clientes.Dominio.Clientes.Scopes
             return AssertionConcern.IsSatisfiedBy
             (
                 AssertionConcern.AssertNotNullOrEmpty(nome, "O Nome é obrigatório"),
-                AssertionConcern.AssertTrue(TextoHelper.ContemNumeros(nome), "Nome inválido")
+                AssertionConcern.AssertTrue(!TextoHelper.ContemNumeros(nome), "Nome inválido")
             );
         }
     }
