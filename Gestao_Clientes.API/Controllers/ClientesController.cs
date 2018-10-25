@@ -24,7 +24,7 @@ namespace Gestao_Clientes.API.Controllers
 
             var httpResult = listaClientes.Count() > 0 
                 ? ResponseMessage(Request.CreateResponse<IEnumerable<ClienteViewModel>>(HttpStatusCode.OK, listaClientes))
-                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Não existem clientes cadastrados"));
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NoContent, "Não existem clientes cadastrados"));
 
             return httpResult;
         }
@@ -36,7 +36,7 @@ namespace Gestao_Clientes.API.Controllers
 
             var httpResult = cliente != null 
                 ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, cliente))
-                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Cliente não Encontrado"));
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NoContent, "Cliente não Encontrado"));
 
             return httpResult;
         }
@@ -66,13 +66,13 @@ namespace Gestao_Clientes.API.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult ConfirmarRemocao(string cpf)
+        public IHttpActionResult Remover(string cpf)
         {
             var clienteRemovido = _clienteNegocios.Remover(cpf);
 
             var httpResult = clienteRemovido != null 
                 ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteRemovido))
-                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NotFound, "Cliente não Encontrado"));
+                : ResponseMessage(Request.CreateResponse<string>(HttpStatusCode.NoContent, "Cliente não Encontrado"));
 
             return httpResult;
         }

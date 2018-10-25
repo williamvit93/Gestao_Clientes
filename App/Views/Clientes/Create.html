@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="file:///C:/Desenvolvimento/Gestao_Clientes/App/Views/Home/Home.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="file:///C:/Desenvolvimento/Gestao_Clientes/App/Views/Clientes/Index.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CLIENTES</a>
+
+            <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+        </div>
+    </div>
+
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px">
+        <h2 class="w3-wide">CLIENTES</h2>
+        <form method="post" id="frmAddClientes">
+            <div class="col-sm-12">
+                <div class="panel-body">
+                    <div class="form-horizontal">
+
+                        <div class="row">
+                            <div class="panel panel-default panel-transparent panel-borders">
+                                <div class="panel-body">
+                                    <h4>Dados do Cliente</h4>
+                                    <div class="col-sm-10">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left">Nome</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" id="Nome" name="Nome" class="form-control input-sm" value="" />
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left cpf">CPF</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control input-sm" id="Cpf" name="Cpf" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left">Sexo</label>
+                                            <div class="col-sm-7">
+                                                <select type="text" class="form-control input-sm" id="Sexo" name="Sexo">
+                                                    <option value="">Selecione</option>
+                                                    <option value="M">Masculino</option>
+                                                    <option value="F">Feminino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left">Tipo de Cliente</label>
+                                            <div class="col-sm-7">
+                                                <select type="text" class="form-control input-sm" id="TipoCliente" name="TipoCliente">
+                                                    <option value="">Selecione</option>
+                                                    <option value="1">Físico</option>
+                                                    <option value="2">Jurídico</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label text-left">Situação do Cliente</label>
+                                            <div class="col-sm-7">
+                                                <select type="text" class="form-control input-sm" id="TipoCliente" name="TipoCliente">
+                                                    <option value="">Selecione</option>
+                                                    <option value="1">Em Débito</option>
+                                                    <option value="2">Em Dia</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group " style="padding-left: 50%">
+                    <a href="file:///C:/Desenvolvimento/Gestao_Clientes/App/Views/Clientes/Index.html" class="btn-default btn btn-rounded">Cancelar</a>
+                    <button class="btn-primary btn btn-rounded" type="button" onclick="GravarClientes('/Clientes/Create')">Salvar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="file:///C:/Desenvolvimento/Gestao_Clientes/App/js/navbar.js"></script>
+    <script src="file:///C:/Desenvolvimento/Gestao_Clientes/App/js/mascaras.js"></script>
+    <script src="file:///C:/Desenvolvimento/Gestao_Clientes/App/js/padrao.js"></script>
+
+</body>
+
+</html>
+

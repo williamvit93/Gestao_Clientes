@@ -13,6 +13,47 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestao_Clientes.Infra", "Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestao_Clientes.API", "Gestao_Clientes.API\Gestao_Clientes.API.csproj", "{6655DD70-9EF7-41EF-8216-AAA9DE37796B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{BF3103DD-111A-40A8-A10E-80A9E34CFB84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{8FF64EC6-920E-45B6-9BA7-3BCCE5BCB7A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{33E45F77-E34A-4458-AC85-784B811361A0}"
+	ProjectSection(SolutionItems) = preProject
+		App\js\clientes.js = App\js\clientes.js
+		App\js\mascaras.js = App\js\mascaras.js
+		App\js\navbar.js = App\js\navbar.js
+		App\js\padrao.js = App\js\padrao.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{471D8C2D-A2FD-4505-B8EA-96B1BE8384A3}"
+	ProjectSection(SolutionItems) = preProject
+		App\css\bootstrap-grid.css = App\css\bootstrap-grid.css
+		App\css\bootstrap-grid.css.map = App\css\bootstrap-grid.css.map
+		App\css\bootstrap-grid.min.css = App\css\bootstrap-grid.min.css
+		App\css\bootstrap-grid.min.css.map = App\css\bootstrap-grid.min.css.map
+		App\css\bootstrap-reboot.css = App\css\bootstrap-reboot.css
+		App\css\bootstrap-reboot.css.map = App\css\bootstrap-reboot.css.map
+		App\css\bootstrap-reboot.min.css = App\css\bootstrap-reboot.min.css
+		App\css\bootstrap-reboot.min.css.map = App\css\bootstrap-reboot.min.css.map
+		App\css\bootstrap.css = App\css\bootstrap.css
+		App\css\bootstrap.css.map = App\css\bootstrap.css.map
+		App\css\bootstrap.min.css = App\css\bootstrap.min.css
+		App\css\bootstrap.min.css.map = App\css\bootstrap.min.css.map
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clientes", "Clientes", "{E95B6A1A-3EA4-46D2-AA5C-045D3A71AC8E}"
+	ProjectSection(SolutionItems) = preProject
+		App\Views\Clientes\Create.html = App\Views\Clientes\Create.html
+		App\Views\Clientes\Delete.html = App\Views\Clientes\Delete.html
+		App\Views\Clientes\Edit.html = App\Views\Clientes\Edit.html
+		App\Views\Clientes\Index.html = App\Views\Clientes\Index.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Home", "Home", "{547DA9F8-4522-4330-90B6-836A977D6DD2}"
+	ProjectSection(SolutionItems) = preProject
+		App\Views\Home\Home.html = App\Views\Home\Home.html
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +83,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8FF64EC6-920E-45B6-9BA7-3BCCE5BCB7A9} = {BF3103DD-111A-40A8-A10E-80A9E34CFB84}
+		{33E45F77-E34A-4458-AC85-784B811361A0} = {BF3103DD-111A-40A8-A10E-80A9E34CFB84}
+		{471D8C2D-A2FD-4505-B8EA-96B1BE8384A3} = {BF3103DD-111A-40A8-A10E-80A9E34CFB84}
+		{E95B6A1A-3EA4-46D2-AA5C-045D3A71AC8E} = {8FF64EC6-920E-45B6-9BA7-3BCCE5BCB7A9}
+		{547DA9F8-4522-4330-90B6-836A977D6DD2} = {8FF64EC6-920E-45B6-9BA7-3BCCE5BCB7A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7447EE02-8529-466A-A61E-9EDDA0E66CE7}
