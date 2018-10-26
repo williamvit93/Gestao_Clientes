@@ -48,7 +48,7 @@ namespace Gestao_Clientes.API.Controllers
 
             var httpResult = clienteAdicionado.Erros == null 
                 ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteAdicionado))
-                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NotAcceptable, clienteAdicionado.Erros));
+                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NonAuthoritativeInformation, clienteAdicionado.Erros));
 
             return httpResult;
         }
@@ -60,7 +60,7 @@ namespace Gestao_Clientes.API.Controllers
 
             var httpResult = clienteAtualizado.Erros == null 
                 ? ResponseMessage(Request.CreateResponse<ClienteViewModel>(HttpStatusCode.OK, clienteAtualizado))
-                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NotAcceptable, clienteAtualizado.Erros));
+                : ResponseMessage(Request.CreateResponse<IEnumerable<string>>(HttpStatusCode.NonAuthoritativeInformation, clienteAtualizado.Erros));
 
             return httpResult;
         }
